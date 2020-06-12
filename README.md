@@ -1,8 +1,27 @@
 # Gess Game
 A Chess/Go variant with its own unique rules!
 
-Rules:
+RULES:
 Please go to this link <https://www.chessvariants.com/crossover.dir/gess.html> to view the rules.
+
+********************
+
+The game is currently incomplete, but is completely playable within the terminal output in your IDE.
+
+********************
+
+Within the GessGame.py class, you can call these methods to perform specific actions and take turns playing against somebody else, or youself:
+
+get_player_turn()
+
+get_game_state()
+
+print_board() - This prints the current board with all of the updated piece locations. This should be used after each make_move().
+
+make_move() - Takes 2 string arguments, initial location and ending location. If the desired move is illegal, the game will return False and allow the player to try another move.
+
+resign_game() - The player who calls this method automatically concedes the game to the other player.
+
 
 Note that when a piece's move causes it to overlap stones, any stones covered by the footprint get removed, not just those covered by one of the piece's stones. It is not legal to make a move that leaves you without a ring. It's possible for a player to have more than one ring. A player doesn't lose until they have no remaining rings.
 
