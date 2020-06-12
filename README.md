@@ -1,4 +1,4 @@
-# Gess_Game
+# Gess Game
 A Chess/Go variant with its own unique rules!
 
 Rules:
