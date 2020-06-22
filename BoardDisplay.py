@@ -4,7 +4,10 @@ pygame.init()
 
 WIDTH = 950
 HEIGHT = 950
-MARGIN = 3
+MARGIN = 2
+distanceFromEdge = 23
+square_width = 43
+square_height = 43
 fps = 60
 
 BLACK = (0, 0, 0)
@@ -30,11 +33,11 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        elif event.type == pygame.MOUSEBUTTONDOWN:      # Returns a tuple of mouse click position
+        elif event.type == pygame.MOUSEBUTTONDOWN:  # Returns a tuple of mouse click position
             pos = pygame.mouse.get_pressed()
             col = pos[0] // 35
             row = pos[1] // 35
-            print(row, col)
+            print(pos)
 
     # Draw game board
     for board_row in range(20):
@@ -46,11 +49,8 @@ while not done:
                 game_board[board_row][board_column] = 1
             if game_board[board_row][board_column] == 0:
                 color = BEIGE
-            pygame.draw.rect(screen,
-                             color,
-                             [45 * board_column + MARGIN + 23,         # Draws the columns
-                              45 * board_row + MARGIN + 23,            # Draws the rows
-                              40,
-                              40])
+            pygame.draw.rect(screen, color, [45 * board_column + MARGIN + distanceFromEdge,  # Draws the columns
+                                             45 * board_row + MARGIN + distanceFromEdge,  # Draws the rows
+                                             43, 43])
     pygame.display.update()
 pygame.quit()

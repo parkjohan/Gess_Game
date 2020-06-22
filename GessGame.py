@@ -95,7 +95,14 @@ class GessGame:
             row_count = int(new[1:]) - int(curr[1:])  # If positive, move is going North, if negative, move is going South
             column_count = ord(new[0]) - ord(curr[0])  # If positive, move is going East, if negative, move is going West
 
-            if -3 > row_count > 3 or -3 > column_count > 3 and footprint_values[0] == '-':  # If desired move is greater than 3 squares, return False
+            # If desired move is greater than 3 squares, return False
+            if row_count < -3 and footprint_values[0] == '-':
+                return False
+            elif row_count > 3 and footprint_values[0] == '-':
+                return False
+            elif column_count < -3 and footprint_values[0] == '-':
+                return False
+            elif column_count > 3 and footprint_values[0] == '-':
                 return False
 
             if curr[0] == new[0] and curr[1:] != new[1:]:  # (Vertical move) Attempted move is in same column, different row. 'a16', 'a17', 'a18'
@@ -325,6 +332,7 @@ class GessGame:
                         return True
 
             self.change_player_turn()
+            self.print_board()
             return True
 
         # --------------------------- WHITE'S MOVE -----------------------------
@@ -352,7 +360,14 @@ class GessGame:
             row_count = int(new[1:]) - int(curr[1:])  # If positive, move is going North, if negative, move is going South
             column_count = ord(new[0]) - ord(curr[0])  # If positive, move is going East, if negative, move is going West
 
-            if -3 > row_count > 3 or -3 > column_count > 3 and footprint_values[0] == '-':  # If desired move is greater than 3 squares, return False
+            # If desired move is greater than 3 squares, return False
+            if row_count < -3 and footprint_values[0] == '-':
+                return False
+            elif row_count > 3 and footprint_values[0] == '-':
+                return False
+            elif column_count < -3 and footprint_values[0] == '-':
+                return False
+            elif column_count > 3 and footprint_values[0] == '-':
                 return False
 
             # (Vertical move) Attempted move is in same column, different row. 'a16', 'a17', 'a18'
@@ -578,6 +593,7 @@ class GessGame:
                         return True
 
             self.change_player_turn()
+            self.print_board()
             return True
 
     def get_piece_values_dict(self):
